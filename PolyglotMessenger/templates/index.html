@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+    <title>AMIK AI Assistant</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+</head>
+<body>
+    <div class="overlay" id="overlay"></div>
+    <div id="sidebar" class="animate-slide-in">
+        <div id="sidebar-header">
+            <h2>AMIK History</h2>
+            <button id="new-chat-btn">New Chat</button>
+        </div>
+        <div class="search-container">
+            <input type="text" class="search-input" placeholder="Search messages..." id="search-input">
+        </div>
+        <div id="history"></div>
+    </div>
+
+    <div id="main">
+        <div id="header">
+            <button id="toggle-sidebar">☰</button>
+            <h1>AMIK AI ASSISTANT</h1>
+            <button id="theme-toggle" style="margin-left: auto">🌙</button>
+            <div class="translate-container" style="margin-left: 1rem;">
+                <button id="translate-toggle" style="display: flex; align-items: center;">🌐</button>
+                <div id="language-dropdown" style="display: none; position: absolute; background: var(--background-color); border: 1px solid rgba(128, 128, 128, 0.2); border-radius: 12px; padding: 1rem; z-index: 1000; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15); min-width: 200px;">
+                    <button class="lang-option" data-lang="en">English</button>
+                    <button class="lang-option" data-lang="zh">Chinese</button>
+                    <button class="lang-option" data-lang="ur">Urdu</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="messages"></div>
+
+        <div id="input-area">
+            <input type="text" id="message-input" placeholder="Type a message..." />
+            <button id="send-button">Send</button>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
